@@ -1014,6 +1014,9 @@
                     params.append('search', this.searchQuery);
                 }
 
+                // Add current filter parameter
+                params.append('filter', this.currentFilter);
+
                 if (this.currentFilter !== 'all') {
                     switch (this.currentFilter) {
                         case 'pending':
@@ -1024,6 +1027,7 @@
                             break;
                         case 'high':
                             params.append('priority', 'HIGH');
+                            // Don't add status - let backend handle high priority logic
                             break;
                     }
                 }
