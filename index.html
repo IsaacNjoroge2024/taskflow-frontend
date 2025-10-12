@@ -765,9 +765,13 @@
 </div>
 
 <script>
+    const API_BASE_URL = window.location.hostname === 'localhost'
+        ? 'http://localhost:8080/api'
+        : 'https://taskflow-backend-production-7f8d.up.railway.app/api';
+
     class TaskManager {
         constructor() {
-            this.apiBaseUrl = 'http://localhost:8080/api';
+            this.apiBaseUrl = API_BASE_URL;
             this.tasks = [];
             this.currentFilter = 'all';
             this.searchQuery = '';
